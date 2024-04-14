@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-mailing',
-  standalone: true,
-  imports: [],
+  standalone: false,
   templateUrl: './mailing.component.html',
   styleUrl: './mailing.component.css'
 })

@@ -1,36 +1,28 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/general/home/home.component';
 import { NotFoundComponent } from './pages/general/not-found/not-found.component';
-import { LoginComponent } from './pages/general/login/login.component';
-import { SignupComponent } from './pages/general/signup/signup.component';
-import { AboutComponent } from './pages/general/about/about.component';
-import { ContactComponent } from './pages/general/contact/contact.component';
-import { MailingComponent } from './pages/general/contact/mailing/mailing.component';
-import { MappingComponent } from './pages/general/contact/mapping/mapping.component';
-import { WebsiteComponent } from './pages/general/contact/website/website.component';
-import { ExperienceComponent } from './pages/general/about/experience/experience.component';
-import { SkillComponent } from './pages/general/about/skill/skill.component';
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'signup', component: SignupComponent },
     {
-        path: 'about', component: AboutComponent,
-        children: [
-            { path: '', component: ExperienceComponent },
-            { path: 'experience', component: ExperienceComponent },
-            { path: 'skill', component: SkillComponent },
-        ],
+        path: '',
+        component: HomeComponent
     },
     {
-        path: 'contact', component: ContactComponent,
-        children: [
-            { path: '', component: MailingComponent },
-            { path: 'mailing', component: MailingComponent },
-            { path: 'mapping', component: MappingComponent },
-            { path: 'website', component: WebsiteComponent },
-        ],
+        path: 'login',
+        loadChildren: () => import('./pages/general/login/login.module').then(m => m.LoginModule)
+    },
+    {
+        path: 'signup',
+        loadChildren: () => import('./pages/general/signup/signup.module').then(m => m.SignupModule)
+    },
+    {
+        path: 'about',
+        loadChildren: () => import('./pages/general/about/about.module').then(m => m.AboutModule),
+    },
+    {
+        path: 'contact',
+        loadChildren: () => import('./pages/general/contact/contact.module').then(m => m.ContactModule)
+
     },
     { path: '**', component: NotFoundComponent },
 ];

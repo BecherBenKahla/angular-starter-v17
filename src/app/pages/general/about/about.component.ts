@@ -4,8 +4,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-about',
-  standalone: true,
-  imports: [RouterLink, RouterOutlet, CommonModule],
+  standalone: false,
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })

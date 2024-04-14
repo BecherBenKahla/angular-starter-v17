@@ -4,8 +4,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
-  standalone: true,
-  imports: [RouterOutlet, CommonModule, RouterLink],
+  standalone: false,
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
